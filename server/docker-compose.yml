@@ -1,0 +1,55 @@
+version: "3.9"
+
+services:
+  mysql_page_manager:
+    image: mysql:8.0
+    container_name: mysql_page_manager
+    command: --default-authentication-plugin=mysql_native_password
+    ports:
+      - "${MYSQL_PORT}:${MYSQL_PORT}"
+    networks:
+      - page_manager-network
+    mem_limit: 512m
+    mem_reservation: 512m
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_USER: "${MYSQL_USERNAME}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+    volumes:
+      - page_manager-data:/var/lib/mysql
+    restart: always
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1"] # Command to check health.
+      interval: 5s # Interval between health checks.
+      timeout: 5s # Timeout for each health checking.
+      retries: 20 # Hou many times retries.
+
+  page_manager:
+    image: page_manager:latest
+    container_name: page_manager
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "${APP_PORT}:${APP_PORT}"
+    networks:
+      - page_manager-network
+    environment:
+      MYSQL_HOST: "mysql_page_manager"
+      MYSQL_PORT: "${MYSQL_PORT}"
+      MYSQL_USER: "${MYSQL_USERNAME}"
+      MYSQL_PASSWORD: "${MYSQL_PASSWORD}"
+      MYSQL_DATABASE: "${MYSQL_DATABASE}"
+    depends_on:
+      mysql_page_manager:
+        condition: service_healthy
+    restart: always
+
+networks:
+  page_manager-network:
+    driver: bridge
+
+volumes:
+  page_manager-data:
+    driver: local

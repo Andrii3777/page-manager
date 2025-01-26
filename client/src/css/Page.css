@@ -1,0 +1,54 @@
+.page-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid #ddd;
+  padding: 15px;
+  margin-bottom: 15px;
+  background-color: rgba(255, 255, 255, 0.541);
+  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+}
+
+.page-container:hover {
+  background-color: rgba(255, 255, 255, 0.694);
+}
+
+.page-content {
+  cursor: pointer;
+  color: #333;
+  text-align: left;
+  flex-grow: 1;
+}
+
+.page-content h3 {
+  font-size: 1.2rem;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.page-content p {
+  font-size: 1rem;
+  color: #555;
+}
+
+.delete-button {
+  padding: 8px 15px;
+  margin-left: 10px;
+  background-color: rgb(225, 0, 0);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.delete-button:hover {
+  background-color: darkred;
+  transform: scale(1.05);
+}
+
+.delete-button:active {
+  transform: scale(1);
+}

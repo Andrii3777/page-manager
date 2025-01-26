@@ -1,0 +1,33 @@
+.page-manager {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.page-manager-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 20px;
+  margin: 30px 70px;
+}
+
+.page-manager-left {
+  flex: 2;
+  padding-right: 20px;
+  max-width: 40vw;
+  width: 100%;
+}
+
+.page-manager-right {
+  flex: 1;
+  max-width: 40vw;
+}
+
+.page-manager-error {
+  color: red;
+}
+
+.page-manager-no-pages {
+  color: white;
+}

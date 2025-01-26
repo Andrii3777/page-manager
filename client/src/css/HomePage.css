@@ -1,0 +1,21 @@
+.home-page-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80vh;
+  gap: 5vw;
+}
+
+.home-page-image {
+  width: 200px;
+  height: auto;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.home-page-text {
+  font-size: 4rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-align: center;
+}
