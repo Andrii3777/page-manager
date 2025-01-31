@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { adminApi } from "../api/axios";
+import { api } from "../api/axios";
 import { useNavigate } from "react-router-dom";
 import Header from "../components/Header";
 import Page from "../components/Page";
@@ -13,7 +13,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchPages = async () => {
       try {
-        const response = await adminApi.get("/pages");
+        const response = await api.get("/pages");
         setPages(response.data.pages);
       } catch (err) {
         console.error(err);

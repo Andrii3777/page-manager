@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { adminApi, api } from "../api/axios";
+import { api } from "../api/axios";
 import CreatePageForm from "../components/CreatePageForm";
 import Page from "../components/Page";
 import Header from "../components/Header";
@@ -14,7 +14,7 @@ const PageManagerPage = () => {
   useEffect(() => {
     const fetchPages = async () => {
       try {
-        const response = await adminApi.get("/pages");
+        const response = await api.get("/pages");
         setPages(response.data.pages);
       } catch (err) {
         console.error(err);
