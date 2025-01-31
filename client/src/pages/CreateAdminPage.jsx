@@ -2,12 +2,14 @@ import { useState } from "react";
 import Header from "../components/Header";
 import { adminApi } from "../api/axios";
 import "../css/FormStyles.css";
+import { useNavigate } from "react-router-dom";
 
 const CreateAdminPage = () => {
   const [email, setEmail] = useState("adminEmail2@example.com");
   const [password, setPassword] = useState("Db1234");
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -30,7 +32,7 @@ const CreateAdminPage = () => {
         rightButtons={[
           {
             label: "Return to Page Manager page",
-            onClick: () => (window.location.href = "/admin"),
+            onClick: () => navigate("/admin"),
           },
         ]}
       />

@@ -1,11 +1,3 @@
-.home-page-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 80vh;
-  gap: 5vw;
-}
-
 .home-page-image {
   width: 200px;
   height: auto;
@@ -14,8 +6,46 @@
 }
 
 .home-page-text {
+  margin-top: 20px;
   font-size: 4rem;
   font-weight: bold;
   color: #ffffff;
-  text-align: center;
+}
+
+.home-page-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 10px 20px;
+  margin: 30px 70px;
+}
+
+.home-page-left {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  flex: 0;
+  padding-right: 20px;
+  max-width: 40vw;
+  width: 100%;
+  z-index: 10;
+}
+
+.home-page-right {
+  flex: 1;
+  max-width: 45vw;
+  margin-left: 40vw;
+}
+
+.home-page-error {
+  color: red;
+}
+
+.home-page-no-pages {
+  color: white;
 }

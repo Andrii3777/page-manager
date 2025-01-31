@@ -30,9 +30,13 @@ const Page = ({ id, title, metaDescription, urlSlug, onDelete }) => {
         <h3>{title}</h3>
         <p>{metaDescription}</p>
       </div>
-      <button onClick={handleDelete} className="delete-button">
-        Delete
-      </button>
+
+      {/* Only show delete button if onDelete is passed */}
+      {onDelete && (
+        <button onClick={handleDelete} className="delete-button">
+          Delete
+        </button>
+      )}
     </div>
   );
 };

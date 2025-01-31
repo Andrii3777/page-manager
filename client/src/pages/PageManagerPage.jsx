@@ -63,7 +63,7 @@ const PageManagerPage = () => {
         ]}
       />
 
-      <div className="page-manager-header">
+      <div className="page-manager-container">
         <div className="page-manager-left">
           <h2>Created Pages</h2>
           {error && <p className="page-manager-error">{error}</p>}
